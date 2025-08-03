@@ -2,30 +2,28 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Style old.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Website</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <header>
-        <a href="">
-            <h1>James de Zwart</h1>
-        </a>
-        <ul>
-            <li><a href="">Portfolio</a></li>
-            <li><a href="">Resume</a></li>
-            <li><a href="">Contact</a></li>
-        </ul>
-    </header>
-
-    <div class="container">
-        <img src="assets/photo.jpg" alt="Background">
-        <div class="overlay">
-            <h2>About me</h2>
-            <p>Hey! My name is James and im a independant developer, student and designer.
-                Im intereseted in all things tech, especially with creative or modern unique designs.</p>
+    <div id="shader-container">
+        <header>
+            <a href="">
+                <h1>J.DZ</h1>
+            </a>
+            <ul>
+                <li><a href="">Portfolio</a></li>
+                <li><a href="">Resume</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </header>
+        <div class="about-container">
+                <h2>About me</h2>
+                <p>Hey! My name is James and im a independant developer, student and designer.
+                    Im intereseted in all things tech, especially with creative or modern unique designs.</p>
         </div>
     </div>
 
@@ -41,7 +39,8 @@
                     </a>
                 </div>
                 <hr>
-                <p>Built for Minecraft bedrock using mojangs data driven .Json schema similar to HTML/CSS and use of various
+                <p>Built for Minecraft bedrock using mojangs data driven .Json schema similar to HTML/CSS and use of
+                    various
                     textures and art.</p>
                 <ul>
                     <li>
@@ -60,7 +59,7 @@
                 <div class="card-title">
                     <h3>This Website!</h3>
                     <a href="https://github.com/ImLuminate/Personal-Website">
-                        <img src="assets/link.svg" alt="GitHub link"/>
+                        <img src="assets/link.svg" alt="GitHub link" />
                     </a>
                 </div>
                 <hr>
@@ -86,11 +85,13 @@
                 <div class="card-title">
                     <h3>External Minecraft Utility</h3>
                     <a href="https://github.com/ImLuminate/External-Fullbright">
-                        <img src="assets/link.svg" alt="GitHub link"/>
+                        <img src="assets/link.svg" alt="GitHub link" />
                     </a>
                 </div>
                 <hr>
-                <p>This scans the memory of a computer, checks if the target application is running to limit issues outside the application scope, then replaces this data with a new set of data. Written entirely in; </p>
+                <p>This scans the memory of a computer, checks if the target application is running to limit issues
+                    outside the application scope, then replaces this data with a new set of data. Written entirely in;
+                </p>
                 <ul>
                     <li>
                         <img src="assets/document.svg">
@@ -104,7 +105,8 @@
     <footer class="footer">
         <div id="footer-top">
             <h2>Contact</h2>
-            <p>You can contact me here for any questions or if you would like to discuss getting your own website!</p>
+            <p>You can find and contact me on for any questions or if you would like to discuss getting your own
+                website!</p>
             <ul>
                 <li><a href="#"><img src="assets/linkedin.svg" alt="Linkedin"></a></li>
                 <li><a href="#"><img src="assets/github.svg" alt="github"></a></li>
@@ -116,6 +118,7 @@
             <p>Copyright ©2021 - James de Zwart</p>
         </div>
     </footer>
-</body>
 
+    <script type="module" src="liquid-shader.js"></script>
+</body>
 </html>
