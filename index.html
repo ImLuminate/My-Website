@@ -4,97 +4,97 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Website</title>
+    <title>James de Zwart - Portfolio</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+    <header>
+        <a href="index.html">
+            <h1>J.DZ</h1>
+        </a>
+        <button class="hamburger" id="hamburger-toggle" aria-label="Toggle menu">
+            &#9776;
+        </button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Resume</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </header>
+    
+    <div id="nav-backdrop"></div>
     <div id="shader-container">
-        <header>
-            <a href="">
-                <h1>J.DZ</h1>
-            </a>
-            <ul>
-                <li><a href="">Portfolio</a></li>
-                <li><a href="">Resume</a></li>
-                <li><a href="">Contact</a></li>
-            </ul>
-        </header>
-        <div class="about-container">
-                <h2>About me</h2>
-                <p>Hey! My name is James and im a independant developer, student and designer.
-                    Im intereseted in all things tech, especially with creative or modern unique designs.</p>
+
+        <div class="container" id="about">
+            <h2>About Me</h2>
+            <hr>
+            <p>Hey! My name is James, and I'm an independent developer, student, and designer. I'm interested in all
+                things tech, especially creative or modern design.</p>
         </div>
     </div>
 
     <section>
-        <h2>Portfolio</h2>
-        <div class="portfolio">
-            <div class="card">
-                <img src="assets/first.jpeg" alt="">
+        <div >
+            <h2>Portfolio</h2>
+            <div class="container" id="portfolio-card">
+                <img src="assets/first.jpeg" alt="Sunset UI screenshot">
                 <div class="card-title">
                     <h3>Sunset UI</h3>
-                    <a href="https://github.com/ImLuminate/Sunset-UI" target="_blank">
-                        <img src="assets/link.svg" alt="GitHub link" />
+                    <a href="https://github.com/ImLuminate/Sunset-UI" target="_blank" rel="noopener noreferrer">
+                        <img src="assets/link.svg" alt="GitHub link">
                     </a>
                 </div>
                 <hr>
-                <p>Built for Minecraft bedrock using mojangs data driven .Json schema similar to HTML/CSS and use of
-                    various
-                    textures and art.</p>
+                <p>Built for Minecraft Bedrock using Mojang’s data-driven JSON schema. Similar in structure to HTML/CSS
+                    with various textures and custom art.</p>
                 <ul>
-                    <li>
-                        <img src="assets/document.svg">
-                        <p>.Json</p>
+                    <li><img src="assets/document.svg" alt="JSON icon">
+                        <p>.JSON</p>
                     </li>
-                    <li>
-                        <img src="assets/image.svg">
+                    <li><img src="assets/image.svg" alt="Art icon">
                         <p>Art</p>
                     </li>
                 </ul>
             </div>
 
-            <div class="card">
-                <img src="assets/second.jpeg" alt="">
+            <div class="container" id="portfolio-card">
+                <img src="assets/second.jpeg" alt="Website screenshot">
                 <div class="card-title">
                     <h3>This Website!</h3>
-                    <a href="https://github.com/ImLuminate/Personal-Website">
-                        <img src="assets/link.svg" alt="GitHub link" />
+                    <a href="https://github.com/ImLuminate/Personal-Website" target="_blank" rel="noopener noreferrer">
+                        <img src="assets/link.svg" alt="GitHub link">
                     </a>
                 </div>
                 <hr>
-                <p>Made to improve my Java Script (JS) and show my current skills in HTML, CSS and general designs.</p>
+                <p>Created to showcase my skills in JavaScript, HTML, CSS, and visual design principles.</p>
                 <ul>
-                    <li>
-                        <img src="assets/document.svg">
+                    <li><img src="assets/document.svg" alt="HTML icon">
                         <p>HTML</p>
                     </li>
-                    <li>
-                        <img src="assets/image.svg">
+                    <li><img src="assets/image.svg" alt="CSS icon">
                         <p>CSS</p>
                     </li>
-                    <li>
-                        <img src="assets/image.svg">
+                    <li><img src="assets/image.svg" alt="JavaScript icon">
                         <p>JS</p>
                     </li>
                 </ul>
             </div>
 
-            <div class="card">
-                <img src="assets/third.jpeg" alt="">
+            <div class="container" id="portfolio-card">
+                <img src="assets/third.jpeg" alt="Minecraft Utility screenshot">
                 <div class="card-title">
                     <h3>External Minecraft Utility</h3>
-                    <a href="https://github.com/ImLuminate/External-Fullbright">
-                        <img src="assets/link.svg" alt="GitHub link" />
+                    <a href="https://github.com/ImLuminate/External-Fullbright" target="_blank"
+                        rel="noopener noreferrer">
+                        <img src="assets/link.svg" alt="GitHub link">
                     </a>
                 </div>
                 <hr>
-                <p>This scans the memory of a computer, checks if the target application is running to limit issues
-                    outside the application scope, then replaces this data with a new set of data. Written entirely in;
+                <p>Scans system memory to find and alter data in Minecraft while the app is running—written entirely in:
                 </p>
                 <ul>
-                    <li>
-                        <img src="assets/document.svg">
+                    <li><img src="assets/document.svg" alt="C++ icon">
                         <p>C++</p>
                     </li>
                 </ul>
@@ -105,20 +105,29 @@
     <footer class="footer">
         <div id="footer-top">
             <h2>Contact</h2>
-            <p>You can find and contact me on for any questions or if you would like to discuss getting your own
-                website!</p>
+            <p>Feel free to reach out through these with questions or to discuss getting your own website built!</p>
             <ul>
-                <li><a href="#"><img src="assets/linkedin.svg" alt="Linkedin"></a></li>
-                <li><a href="#"><img src="assets/github.svg" alt="github"></a></li>
-                <li><a href="#"><img src="assets/phone.svg" alt="phone"></a></li>
-                <li><a href="#"><img src="assets/mail.svg" alt="Gmail"></a></li>
+                <li><a href="#"><img src="assets/linkedin.svg" alt="LinkedIn"></a></li>
+                <li><a href="#"><img src="assets/github.svg" alt="GitHub"></a></li>
+                <li><a href="#"><img src="assets/phone.svg" alt="Phone"></a></li>
+                <li><a href="#"><img src="assets/mail.svg" alt="Email"></a></li>
             </ul>
         </div>
         <div id="footer-bottom">
-            <p>Copyright ©2021 - James de Zwart</p>
+            <p>Copyright &copy; 2025 - James de Zwart</p>
         </div>
     </footer>
 
     <script type="module" src="liquid-shader.js"></script>
+    <script>
+        const hamburger = document.getElementById("hamburger-toggle");
+        const navLinks = document.getElementById("nav-links");
+
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("open");
+        });
+    </script>
+
 </body>
+
 </html>
