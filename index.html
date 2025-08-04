@@ -13,14 +13,11 @@
         <a href="index.html">
             <h1>J.DZ</h1>
         </a>
-        <div>
-            <button class="hamburger" id="hamburger-toggle" aria-label="Toggle menu">
-                &#9776;
-            </button>
-            <button class="light" id="hamburger-toggle" aria-label="Toggle menu">
-                &#9776;
-            </button>
+        <div class="nav-buttons">
+            <button class="hamburger" id="hamburger-toggle" aria-label="Toggle menu">&#9776;</button>
+            <button class="light-toggle" id="light-toggle" aria-label="Toggle light mode">🌓</button>
         </div>
+
     </header>
     <ul class="nav-links" id="nav-links">
         <li><a href="#portfolio">Portfolio</a></li>
@@ -39,9 +36,9 @@
     </div>
 
     <section>
-        <div >
-            <h2>Portfolio</h2>
-            <div class="container" id="portfolio-card">
+        <h2>Portfolio</h2>
+        <div class="portfolio">
+            <div class="portfolio-card container">
                 <img src="assets/first.jpeg" alt="Sunset UI screenshot">
                 <div class="card-title">
                     <h3>Sunset UI</h3>
@@ -61,8 +58,7 @@
                     </li>
                 </ul>
             </div>
-
-            <div class="container" id="portfolio-card">
+            <div class="portfolio-card container">
                 <img src="assets/second.jpeg" alt="Website screenshot">
                 <div class="card-title">
                     <h3>This Website!</h3>
@@ -84,9 +80,7 @@
                     </li>
                 </ul>
             </div>
-
-            <div class="container" id="portfolio-card">
-                <img src="assets/third.jpeg" alt="Minecraft Utility screenshot">
+            <div class="portfolio-card container"> <img src="assets/third.jpeg" alt="Minecraft Utility screenshot">
                 <div class="card-title">
                     <h3>External Minecraft Utility</h3>
                     <a href="https://github.com/ImLuminate/External-Fullbright" target="_blank"
@@ -101,9 +95,7 @@
                     <li><img src="assets/document.svg" alt="C++ icon">
                         <p>C++</p>
                     </li>
-                </ul>
             </div>
-        </div>
     </section>
 
     <footer class="footer">
