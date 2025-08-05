@@ -44,7 +44,7 @@ footer {
 }
 
 #resume {
-scroll-margin-top: 180px;
+  scroll-margin-top: 180px;
 }
 
 .nav-links {
@@ -89,7 +89,8 @@ body.light-mode h3 {
   color: #000000;
 }
 
-body.light-mode .container:hover, body.light-mode .resume-controls button:hover {
+body.light-mode .container:hover,
+body.light-mode .resume-controls button:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -181,7 +182,8 @@ canvas {
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: 0; /* Not negative */
+  z-index: 0;
+  /* Not negative */
 }
 
 /* === Header === */
@@ -305,11 +307,11 @@ section h2 {
 
 .portfolio {
   width: 90%;
-  max-width: 822px; 
+  max-width: 822px;
   margin: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  box-sizing: border-box; 
+  box-sizing: border-box;
   gap: 2rem;
 }
 
@@ -396,6 +398,7 @@ section h2 {
   object-fit: contain;
   filter: invert(100%);
 }
+
 /* === CV === */
 .resume-header {
   display: flex;
