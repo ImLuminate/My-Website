@@ -1,11 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.getElementById("hamburger-toggle");
   const navLinks = document.getElementById("nav-links");
+
+  document.getElementById("hamburger-toggle").addEventListener("click", () => {
+    document.getElementById("nav-links").classList.toggle("open");
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.getElementById("hamburger-toggle");
+  const navLinks = document.getElementById("nav-links");
   const lightToggle = document.getElementById("light-toggle");
 
   // Toggle nav menu
-  hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
+  document.getElementById("hamburger-toggle").addEventListener("click", () => {
+    document.getElementById("nav-links").classList.toggle("open");
   });
 
   // Toggle light/dark mode
@@ -25,30 +34,30 @@ document.addEventListener("DOMContentLoaded", () => {
   if (savedTheme === "light") {
     document.body.classList.add("light-mode");
   }
-console.log("hamburger JS loaded");
+  console.log("hamburger JS loaded");
 
-document.addEventListener("DOMContentLoaded", () => {
-  const hamburger = document.getElementById("hamburger-toggle");
-  const navLinks = document.getElementById("nav-links");
+  document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.getElementById("hamburger-toggle");
+    const navLinks = document.getElementById("nav-links");
 
-  hamburger.addEventListener("click", () => {
-    console.log("hamburger clicked");
-    navLinks.classList.toggle("open");
+    hamburger.addEventListener("click", () => {
+      console.log("hamburger clicked");
+      navLinks.classList.toggle("open");
+    });
+
+    const lightToggle = document.getElementById("light-toggle");
+
+    lightToggle.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+      localStorage.setItem(
+        "theme",
+        document.body.classList.contains("light-mode") ? "light" : "dark"
+      );
+    });
+
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
+      document.body.classList.add("light-mode");
+    }
   });
-
-  const lightToggle = document.getElementById("light-toggle");
-
-  lightToggle.addEventListener("click", () => {
-    document.body.classList.toggle("light-mode");
-    localStorage.setItem(
-      "theme",
-      document.body.classList.contains("light-mode") ? "light" : "dark"
-    );
-  });
-
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "light") {
-    document.body.classList.add("light-mode");
-  }
-});
 });
