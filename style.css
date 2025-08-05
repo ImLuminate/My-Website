@@ -75,6 +75,10 @@ body.light-mode #shader-container {
   background-color: transparent;
 }
 
+body.light-mode .nav-links li a {
+  color: #000000;
+}
+
 body.light-mode .card-title a img,
 body.light-mode footer ul li img {
   filter: invert(0%);
@@ -100,7 +104,7 @@ a {
 }
 
 a:hover {
-  filter: brightness(65%);
+  filter: invert(50%);
   transition: filter 0.3s ease;
 }
 
@@ -192,14 +196,6 @@ header {
   cursor: pointer;
 }
 
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
 .hamburger {
   display: block;
   font-size: 1.8rem;
@@ -211,14 +207,14 @@ header {
 
 .nav-links {
   display: none;
-  position: sticky;
-  top: 100px;
+  position: sticky, relative;
   z-index: 10;
 
   max-width: calc(90% - 20px);
   width: 800px;
+  list-style: none;
 
-  margin: auto;
+  margin: 30px auto;
   border-radius: 8px;
   padding: 10px;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -235,7 +231,6 @@ header {
 
 .nav-links.open {
   display: flex !important;
-  position: static;
 }
 
 .nav-links li {
@@ -289,13 +284,11 @@ section h2 {
 }
 
 .portfolio-card {
-  height: fit-content;
-  width: calc(100% - 20px);
+  width: calc(100% - 40px);
   margin: auto;
-
   display: flex;
+  padding: 20px;
   flex-direction: column;
-
   background-color: rgba(27, 27, 27, 0.5);
   border: 1px solid rgba(54, 54, 54, 0.5);
   border-radius: 8px;
@@ -316,67 +309,66 @@ section h2 {
 
 .card-title {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 0;
   width: 100%;
   box-sizing: border-box;
+  gap: 0.5rem;
 }
 
 .card-title h3 {
+  display: block;
   font-size: 1.5rem;
   color: white;
   line-height: 1.2;
 }
 
 .card-title a {
-  display: block;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
 }
 
 .card-title a img {
   width: 100%;
   height: 100%;
+  margin: 0;
   filter: invert(100%);
 }
 
 .portfolio-card hr {
-  width: calc(100% - 20px);
+  width: 100%;
   opacity: 0.2;
 }
 
 .portfolio-card p {
-  margin: auto;
-}
-
-.portfolio-card ul {
-  list-style: none;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 2rem;
-  margin: 10px auto 20px;
-  padding: 0;
-}
-
-.portfolio-card ul li {
-  display: flex;
-  align-items: center;
-  padding: 4px;
-}
-
-.portfolio-card ul li img {
-  width: 25px;
-  filter: invert(90%);
-  margin-right: 5px;
-}
-
-#portfolio-card ul li p {
+  width: 100%;
   margin: 0;
-  font-size: 0.9rem;
-  color: rgb(229, 229, 229);
-  text-align: left;
+}
+
+.file-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.file {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: white;
+}
+
+.file img {
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  object-fit: contain;
+  filter: invert(100%);
 }
 
 /* === Footer === */
@@ -410,7 +402,7 @@ footer ul {
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
   padding: 0;
   margin: 0;
 }

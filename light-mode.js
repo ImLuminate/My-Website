@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.getElementById("hamburger-toggle");
-  const navLinks = document.getElementById("nav-links");
+  const navLinks = document.getElementsByClassName("nav-links");
 
   document.getElementById("hamburger-toggle").addEventListener("click", () => {
     document.getElementById("nav-links").classList.toggle("open");
