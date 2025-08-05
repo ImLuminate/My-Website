@@ -1,6 +1,6 @@
 import * as THREE from 'https://cdn.skypack.dev/three@0.152.2';
 
-const container = document.getElementById('shader-container');
+const container = document.body;
 const width = container.clientWidth;
 const height = container.clientHeight;
 
@@ -16,7 +16,7 @@ const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
 
 // Uniforms
 const uniforms = {
-  u_time: { value: 0.0 },
+  u_time: { value: 10.0 },
   u_mouse: { value: new THREE.Vector2(0.0, 0.0) },
   u_resolution: { value: new THREE.Vector2(width, height) },
   u_colorA: { value: new THREE.Color(0.25, 0.25, 0.25) },
@@ -78,9 +78,9 @@ const fragmentShader = `
     uv += 0.5;
 
     vec2 offset = u_mouse * 0.2;
-    uv = uv * 5.0 + offset;
+    uv = uv * 20.0 + offset;
 
-    float n = fbm(uv + vec2(u_time * 0.05, u_time * 0.03));
+  float n = fbm(uv + vec2(u_time * 0.002, u_time * 0.001));
     float contour = mod(n * 6.0 + u_time * 0.5, 1.0);
     float intensity = 1.0 - smoothstep(0.015, 0.05, contour);
 
@@ -121,7 +121,7 @@ container.addEventListener("mousemove", (e) => {
 const clock = new THREE.Clock();
 function animate() {
   requestAnimationFrame(animate);
-  uniforms.u_time.value = clock.getElapsedTime();
+  uniforms.u_time.value = clock.getElapsedTime() * 0.4;
   renderer.render(scene, camera);
 }
 animate();
