@@ -42,7 +42,8 @@ body.light-mode {
 
 body.light-mode .container,
 body.light-mode .nav-links,
-body.light-mode .portfolio-card {
+body.light-mode .portfolio-card,
+body.light-mode .resume-controls button {
   background-color: rgba(245, 245, 245, 0.7);
   color: #111;
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -66,8 +67,7 @@ body.light-mode h3 {
   color: #000000;
 }
 
-body.light-mode .container:hover {
-  box-shadow: none;
+body.light-mode .container:hover, body.light-mode .resume-controls button:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -88,12 +88,18 @@ body.light-mode .nav-links li a {
 }
 
 body.light-mode .card-title a img,
-body.light-mode footer ul li img {
+body.light-mode footer ul li img,
+body.light-mode .resume-controls a button img {
   filter: invert(0%);
 }
 
 body.light-mode .portfolio-card ul li img {
   filter: invert(0%);
+}
+
+.resume-controls button:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 body.light-mode .footer {
@@ -389,14 +395,30 @@ section h2 {
   gap: 0.5rem;
 }
 
+.resume-controls a:hover {
+  filter: invert(10%);
+}
+
 .resume-controls button {
-  font-size: 1rem;
-  padding: 6px 12px;
-  background: #222;
-  color: white;
-  border: 1px solid #444;
-  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 2px;
   cursor: pointer;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: rgba(27, 27, 27, 0.5);
+  border: 1px solid rgba(54, 54, 54, 0.5);
+}
+
+.resume-controls button:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.resume-controls button img {
+  width: 30px;
+  height: 30px;
+  filter: invert(100%);
 }
 
 .resume {
