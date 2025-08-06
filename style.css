@@ -186,8 +186,10 @@ canvas {
   height: 100vh;
   pointer-events: none;
   z-index: 0;
-  /* Not negative */
+  max-height: 100vh;
+  overflow: hidden;
 }
+
 
 /* === Header === */
 header {
