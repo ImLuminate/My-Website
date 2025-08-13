@@ -82,7 +82,7 @@ void main(){
   float arYoverX = u_resolution.y / u_resolution.x; // >1 in portrait
   float boost = mix(1.0, 1.5, smoothstep(1.0, 2.2, arYoverX));
 
-  float zoom = 13.0;
+  float zoom = 10.0;
 
   if (u_resolution.y > u_resolution.x) {
       zoom *= 0.3;  // increase this number for more zoom on phones
