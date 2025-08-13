@@ -1,20 +1,22 @@
 import * as THREE from 'https://cdn.skypack.dev/three@0.152.2';
 
 const container = document.body;
-const width = container.clientWidth;
-const height = container.clientHeight;
+
+// --- use the viewport (prevents CSS scaling/stretch) ---
+let width = window.innerWidth;
+let height = window.innerHeight;
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-renderer.setSize(width, height);
 renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(width, height);
 container.appendChild(renderer.domElement);
 
 // Scene and orthographic camera for full-screen quad
 const scene = new THREE.Scene();
 const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
 
-// Uniforms
+// Uniforms (unchanged names/values)
 const uniforms = {
   u_time: { value: 10.0 },
   u_mouse: { value: new THREE.Vector2(0.0, 0.0) },
@@ -24,7 +26,7 @@ const uniforms = {
   u_dominance: { value: 1.0 }
 };
 
-// Shaders
+// Shaders (identical style; only aspect math changed)
 const vertexShader = `
   varying vec2 v_uv;
   void main() {
@@ -71,23 +73,31 @@ const fragmentShader = `
     return total;
   }
 
-  void main() {
-    vec2 uv = v_uv;
-    uv -= 0.5;
-    uv *= vec2(u_resolution.x / u_resolution.y, 1.0);
-    uv += 0.5;
+void main(){
+  float s = min(u_resolution.x, u_resolution.y);
+  vec2 uv = (gl_FragCoord.xy - 0.5 * u_resolution) / s + 0.5;
 
-    vec2 offset = u_mouse * 0.2;
-    uv = uv * 20.0 + offset;
+  vec2 offset = u_mouse * 0.1;
+
+  float arYoverX = u_resolution.y / u_resolution.x; // >1 in portrait
+  float boost = mix(1.0, 1.5, smoothstep(1.0, 2.2, arYoverX));
+
+  float zoom = 13.0;
+
+  if (u_resolution.y > u_resolution.x) {
+      zoom *= 0.3;  // increase this number for more zoom on phones
+  }
+
+  uv = uv * zoom + offset;
 
   float n = fbm(uv + vec2(u_time * 0.002, u_time * 0.001));
-    float contour = mod(n * 6.0 + u_time * 0.5, 1.0);
-    float intensity = 1.0 - smoothstep(0.015, 0.05, contour);
+  float contour = mod(n * 6.0 + u_time * 0.5, 1.0);
+  float intensity = 1.0 - smoothstep(0.015, 0.05, contour);
 
-    vec3 color = u_colorA;
-    float alpha = intensity * pow(v_uv.y, 1.5);
-    gl_FragColor = vec4(color, alpha);
-  }
+  vec3 color = u_colorA;
+  float alpha = intensity * pow(v_uv.y, 1.5);
+  gl_FragColor = vec4(color, alpha);
+}
 `;
 
 // Fullscreen quad
@@ -101,16 +111,15 @@ const material = new THREE.ShaderMaterial({
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
 
-// Handle resizes
-new ResizeObserver(() => {
-  const w = container.clientWidth;
-  const h = container.clientHeight;
+// Handle resizes using the viewport
+window.addEventListener('resize', () => {
+  width = window.innerWidth;
+  height = window.innerHeight;
+  renderer.setSize(width, height);
+  uniforms.u_resolution.value.set(width, height);
+});
 
-  renderer.setSize(w, h);
-  uniforms.u_resolution.value.set(w, h);
-}).observe(container);
-
-// Mouse
+// Mouse (same mapping you had)
 container.addEventListener("mousemove", (e) => {
   const rect = container.getBoundingClientRect();
   uniforms.u_mouse.value.x = ((e.clientX - rect.left) / rect.width - 0.5) * 1.5;
