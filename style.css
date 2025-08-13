@@ -190,24 +190,25 @@ canvas {
   overflow: hidden;
 }
 
-
 /* === Header === */
 header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 10;
+  left: 0;
+  right: 0;
+  z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 1rem;
-  width: 100%;
-  height: fit-content;
-  box-sizing: border-box;
-  background-color: rgba(27, 27, 27, 0.5);
-  border-bottom: 1px solid rgba(54, 54, 54, 0.5);
+  background-color: rgba(27,27,27,0.5);
+  border-bottom: 1px solid rgba(54,54,54,0.5);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
+  box-sizing: border-box;
 }
+
+body { padding-top: 70px; }
 
 .nav-buttons {
   display: flex;
@@ -253,8 +254,10 @@ header {
 
 .nav-links {
   display: none;
-  position: sticky;
-  top: 108px;
+  position: fixed;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 10;
   max-width: calc(90% - 20px);
   width: 800px;
