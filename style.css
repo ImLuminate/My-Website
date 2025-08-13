@@ -86,7 +86,7 @@ body.light-mode {
 
 .light-mode h1,
 .light-mode h2,
-.light-mode h3 {
+body.light-mode h3 {
   color: #000000;
 }
 
