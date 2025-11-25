@@ -257,8 +257,8 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 1rem;
-  background-color: rgba(27,27,27,0.5);
-  border-bottom: 1px solid rgba(54,54,54,0.5);
+  background-color: rgba(27, 27, 27, 0.5);
+  border-bottom: 1px solid rgba(54, 54, 54, 0.5);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   box-sizing: border-box;
@@ -475,6 +475,7 @@ section h2 {
 
 .resume-header h2 {
   padding-bottom: 0;
+  margin-left: 0;
 }
 
 .resume-controls {
@@ -509,16 +510,15 @@ section h2 {
 }
 
 .resume {
-  height: fit-content;
   width: calc(90% - 20px);
   max-width: 800px;
 }
 
-#resume-image {
+#resume-jpeg {
   width: 100%;
-  object-fit: cover;
-  border-radius: 7px;
+  height: auto;
   display: block;
+  border-radius: 7px;
 }
 
 /* === Footer === */
