@@ -33,6 +33,64 @@ body {
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
+/* === Scrollbar – Dark Mode (default) === */
+
+/* WebKit (Chrome, Edge, Safari) */
+html::-webkit-scrollbar {
+  width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+  background: rgba(10, 10, 10, 0.9);
+  border-left: 1px solid rgba(54, 54, 54, 0.5);
+}
+
+html::-webkit-scrollbar-thumb {
+  background: rgba(160, 160, 160, 0.8);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: rgba(220, 220, 220, 0.9);
+}
+
+/* Firefox dark */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(160, 160, 160, 0.8) rgba(10, 10, 10, 0.9);
+}
+
+/* === Scrollbar – Light Mode === */
+
+html.light-mode::-webkit-scrollbar {
+  width: 10px;
+}
+
+html.light-mode::-webkit-scrollbar-track {
+  background: rgba(245, 245, 245, 0.9);
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+html.light-mode::-webkit-scrollbar-thumb {
+  background: rgba(130, 130, 130, 0.8);
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+}
+
+html.light-mode::-webkit-scrollbar-thumb:hover {
+  background: rgba(80, 80, 80, 0.95);
+}
+
+/* Firefox light */
+html.light-mode {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(90, 90, 90, 0.9) rgba(245, 245, 245, 0.9);
+}
+
+
 /* === Light Mode Styles === */
 .container,
 section,
@@ -281,6 +339,7 @@ header {
 #about {
   max-width: calc(90% - 20px);
   width: 800px;
+  height: fit-content;
   margin: 100px auto;
   margin-bottom: 20px;
   display: flex;
@@ -291,8 +350,8 @@ header {
 }
 
 #about p {
-  width: 100%;
   margin-top: 0;
+  padding: 0;
 }
 
 #about hr {

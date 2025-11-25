@@ -1,63 +1,40 @@
 document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.getElementById("hamburger-toggle");
-  const navLinks = document.getElementsByClassName("nav-links");
-
-  document.getElementById("hamburger-toggle").addEventListener("click", () => {
-    document.getElementById("nav-links").classList.toggle("open");
-  });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const hamburger = document.getElementById("hamburger-toggle");
   const navLinks = document.getElementById("nav-links");
   const lightToggle = document.getElementById("light-toggle");
 
-  // Toggle nav menu
-  document.getElementById("hamburger-toggle").addEventListener("click", () => {
-    document.getElementById("nav-links").classList.toggle("open");
+  const root = document.documentElement; // <html>
+
+  // --- NAV MENU TOGGLE ---
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
+    console.log("hamburger clicked");
   });
 
-  // Toggle light/dark mode
-  lightToggle.addEventListener("click", () => {
-    document.body.classList.toggle("light-mode");
+  // Helper: apply a theme string: "light" or "dark"
+  function applyTheme(theme) {
+    const isLight = theme === "light";
 
-    // Optional: persist theme across reloads
-    if (document.body.classList.contains("light-mode")) {
-      localStorage.setItem("theme", "light");
-    } else {
-      localStorage.setItem("theme", "dark");
-    }
-  });
+    root.classList.toggle("light-mode", isLight);
+    document.body.classList.toggle("light-mode", isLight);
 
-  // Apply saved theme on load
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "light") {
-    document.body.classList.add("light-mode");
+    localStorage.setItem("theme", isLight ? "light" : "dark");
   }
-  console.log("hamburger JS loaded");
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const hamburger = document.getElementById("hamburger-toggle");
-    const navLinks = document.getElementById("nav-links");
+  // --- APPLY SAVED THEME ON LOAD ---
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "light" || savedTheme === "dark") {
+    applyTheme(savedTheme);
+  } else {
+    // default: dark
+    applyTheme("dark");
+  }
 
-    hamburger.addEventListener("click", () => {
-      console.log("hamburger clicked");
-      navLinks.classList.toggle("open");
-    });
-
-    const lightToggle = document.getElementById("light-toggle");
-
-    lightToggle.addEventListener("click", () => {
-      document.body.classList.toggle("light-mode");
-      localStorage.setItem(
-        "theme",
-        document.body.classList.contains("light-mode") ? "light" : "dark"
-      );
-    });
-
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "light") {
-      document.body.classList.add("light-mode");
-    }
+  // --- TOGGLE LIGHT/DARK MODE ---
+  lightToggle.addEventListener("click", () => {
+    const isCurrentlyLight = root.classList.contains("light-mode");
+    applyTheme(isCurrentlyLight ? "dark" : "light");
   });
+
+  console.log("JS loaded");
 });
